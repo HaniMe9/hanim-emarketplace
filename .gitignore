@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Playwright artifacts
+playwright-report/
+test-results/
+
+# Manual test harness working files
+.tmp/
+
+# Dev API pidfile for single-instance enforcement
+.hm-api.pid
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+
+# Environment — secrets are never committed
+.env
+.env.local
+.env.*.local

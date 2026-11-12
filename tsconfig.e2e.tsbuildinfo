@@ -1,0 +1,1 @@
+{"root":["./e2e/assistant.spec.ts","./e2e/authorization.spec.ts","./e2e/browse.spec.ts","./e2e/directory.spec.ts","./e2e/fixtures.ts","./e2e/i18n-coverage.spec.ts","./e2e/i18n.spec.ts","./e2e/layout.spec.ts"],"version":"5.9.3"}

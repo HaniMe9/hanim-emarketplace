@@ -1,0 +1,253 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------ *
+   Design tokens. Semantic vars flip on .dark; @theme inline keeps the  *
+   generated utilities pointing at the live var (runtime theming).      *
+ * ------------------------------------------------------------------ */
+:root {
+  --canvas: oklch(98.6% 0.004 95);
+  --surface: oklch(100% 0 0);
+  --surface-2: oklch(97.2% 0.006 95);
+  --surface-3: oklch(94.5% 0.008 95);
+  --line: oklch(90.5% 0.01 90);
+  --line-strong: oklch(84% 0.014 90);
+
+  --ink: oklch(24% 0.02 260);
+  --ink-2: oklch(45% 0.02 260);
+  --ink-3: oklch(60% 0.015 260);
+  --ink-invert: oklch(99% 0 0);
+
+  --brand: oklch(56% 0.115 180);
+  --brand-strong: oklch(48% 0.105 181);
+  --brand-soft: oklch(95% 0.03 180);
+  --brand-ink: oklch(38% 0.09 181);
+
+  --gold: oklch(76% 0.145 78);
+  --gold-soft: oklch(96% 0.05 82);
+  --gold-ink: oklch(52% 0.12 70);
+
+  --ok: oklch(58% 0.14 155);
+  --ok-soft: oklch(95% 0.05 155);
+  --warn: oklch(72% 0.15 70);
+  --warn-soft: oklch(96% 0.06 80);
+  --bad: oklch(58% 0.19 25);
+  --bad-soft: oklch(95% 0.04 25);
+  --info: oklch(58% 0.14 250);
+  --info-soft: oklch(95% 0.04 250);
+  --violet: oklch(56% 0.17 295);
+  --violet-soft: oklch(96% 0.03 295);
+
+  --radius: 0.75rem;
+  --shadow-color: 240 30% 20%;
+}
+
+.dark {
+  --canvas: oklch(17% 0.017 258);
+  --surface: oklch(21.5% 0.02 258);
+  --surface-2: oklch(25.5% 0.021 258);
+  --surface-3: oklch(30% 0.022 258);
+  --line: oklch(31% 0.02 258);
+  --line-strong: oklch(40% 0.022 258);
+
+  --ink: oklch(97% 0.005 250);
+  --ink-2: oklch(76% 0.014 250);
+  --ink-3: oklch(61% 0.016 250);
+  --ink-invert: oklch(20% 0.02 258);
+
+  --brand: oklch(72% 0.12 180);
+  --brand-strong: oklch(80% 0.11 180);
+  --brand-soft: oklch(30% 0.045 180);
+  --brand-ink: oklch(88% 0.06 180);
+
+  --gold: oklch(80% 0.14 80);
+  --gold-soft: oklch(30% 0.05 78);
+  --gold-ink: oklch(88% 0.08 82);
+
+  --ok: oklch(74% 0.14 155);
+  --ok-soft: oklch(28% 0.05 155);
+  --warn: oklch(80% 0.14 75);
+  --warn-soft: oklch(30% 0.055 75);
+  --bad: oklch(70% 0.17 25);
+  --bad-soft: oklch(30% 0.06 25);
+  --info: oklch(72% 0.13 250);
+  --info-soft: oklch(28% 0.05 250);
+  --violet: oklch(74% 0.14 295);
+  --violet-soft: oklch(29% 0.05 295);
+
+  --shadow-color: 250 40% 4%;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ink-invert: var(--ink-invert);
+
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-ink: var(--brand-ink);
+
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-ink: var(--gold-ink);
+
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-violet: var(--violet);
+  --color-violet-soft: var(--violet-soft);
+
+  --font-sans: 'Inter', 'Noto Sans Ethiopic', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', 'Noto Sans Ethiopic', sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --radius-sm: 0.4rem;
+  --radius-md: 0.6rem;
+  --radius-lg: var(--radius);
+  --radius-xl: 1rem;
+  --radius-2xl: 1.4rem;
+
+  --shadow-xs: 0 1px 2px hsl(var(--shadow-color) / 0.06);
+  --shadow-sm: 0 1px 3px hsl(var(--shadow-color) / 0.07), 0 1px 2px hsl(var(--shadow-color) / 0.05);
+  --shadow-md: 0 4px 14px hsl(var(--shadow-color) / 0.08), 0 1px 3px hsl(var(--shadow-color) / 0.05);
+  --shadow-lg: 0 12px 34px hsl(var(--shadow-color) / 0.12), 0 3px 8px hsl(var(--shadow-color) / 0.06);
+  --shadow-xl: 0 26px 60px hsl(var(--shadow-color) / 0.2), 0 6px 16px hsl(var(--shadow-color) / 0.08);
+
+  --animate-in: fade-in 0.22s ease-out;
+  --animate-rise: rise 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-shimmer: shimmer 1.6s linear infinite;
+  --animate-pulse-ring: pulse-ring 2.4s ease-out infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 hsl(var(--ok) / 0.45); }
+  70% { box-shadow: 0 0 0 10px hsl(var(--ok) / 0); }
+  100% { box-shadow: 0 0 0 0 hsl(var(--ok) / 0); }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  :lang(am), .am {
+    font-family: 'Noto Sans Ethiopic', 'Inter', sans-serif;
+    line-height: 1.75;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  ::selection {
+    background: var(--brand);
+    color: white;
+  }
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  input, select, textarea, button { font: inherit; }
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  * { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--line-strong);
+    border-radius: 99px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+}
+
+@utility card {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+}
+
+@utility hairline {
+  border-bottom: 1px solid var(--line);
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(100deg, var(--brand), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility grid-noise {
+  background-image:
+    radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--ink) 12%, transparent) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+@utility skeleton {
+  background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3) 37%, var(--surface-2) 63%);
+  background-size: 200% 100%;
+  animation: var(--animate-shimmer);
+  border-radius: var(--radius-md);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+@utility clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@utility clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
